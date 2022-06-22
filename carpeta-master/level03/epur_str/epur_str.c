@@ -2,17 +2,18 @@
 
 #include <unistd.h>
 
-int		skip_whitespace(char *str, int i)
+int	skip_whitespace(char *str, int i)
 {
 	while (str[i] == ' ' || str[i] == '\t')
 		++i;
 	return (i);
 }
 
-int		ft_wordlen(char *str)
+int	ft_wordlen(char *str)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
 		++i;
 	return (i);
@@ -20,10 +21,12 @@ int		ft_wordlen(char *str)
 
 void	epur_str(char *str)
 {
-	int i = 0;
-	int first_word = 1;
-	int word_len;
+	int	i;
+	int	first_word;
+	int	word_len;
 
+	i = 0;
+	first_word = 1;
 	i = skip_whitespace(str, i);
 	while (str[i] != '\0')
 	{
@@ -37,7 +40,7 @@ void	epur_str(char *str)
 	}
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc == 2)
 		epur_str(argv[1]);

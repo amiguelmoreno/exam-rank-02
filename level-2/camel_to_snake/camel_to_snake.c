@@ -1,5 +1,3 @@
-// Passed Moulinette 2019.09.01
-
 #include <unistd.h>
 
 void	camel_to_snake(char *str)
@@ -16,11 +14,10 @@ void	camel_to_snake(char *str)
 	}
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc == 2)
 		camel_to_snake(argv[1]);
-
 	write(1, "\n", 1);
 	return (0);
 }

@@ -1,14 +1,17 @@
-#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int	main(int argc, char **argv)
 {
-	int	first = atoi(argv[1]);
-	int	second = atoi(argv[3]);
-	char	oper = argv[2][0];
-	int	res;
+	int		first;
+	int		second;
+	char	oper;
+	int		res;
 
+	first = atoi(argv[1]);
+	second = atoi(argv[3]);
+	oper = argv[2][0];
 	if (argc == 4)
 	{
 		if (oper == '+')

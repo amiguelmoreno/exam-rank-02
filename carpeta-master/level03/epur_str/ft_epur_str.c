@@ -1,16 +1,35 @@
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
-int main(int argc, char **argv)
+int	get_lasttchar(char *str)
 {
-	int i;
+	int	i;
 
+	while (str[i])
+	{
+		i++;
+	}
+	i--;
+	while (str[i] == ' ' || str[i] == '\t')
+	{
+		i--;
+	}
+	write(1, &i, 1);
+	return (i);
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+	int	x;
+
+	x = get_lasttchar(argv[1]);
 	if (argc == 2)
 	{
 		i = 0;
 		while (argv[1][i] == ' ' || argv[1][i] == '\t')
 			i++;
-		while (argv[1][i] != '\0')
+		while (i <= x)
 		{
 			if (argv[1][i] != ' ' && argv[1][i] != '\t')
 			{
@@ -23,6 +42,7 @@ int main(int argc, char **argv)
 				i++;
 		}
 	}
+	write(1, &x, 1);
 	write(1, "\n", 1);
 	return (0);
 }

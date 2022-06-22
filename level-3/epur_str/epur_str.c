@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   alpha_mirror.c                                     :+:      :+:    :+:   */
+/*   epur_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 19:13:33 by antmoren          #+#    #+#             */
-/*   Updated: 2022/06/22 19:15:44 by antmoren         ###   ########.fr       */
+/*   Created: 2022/06/22 17:45:51 by antmoren          #+#    #+#             */
+/*   Updated: 2022/06/22 19:03:10 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,29 @@
 
 int	main(int argc, char **argv)
 {
-	int	i;
+	int	pos;
+	int	space;
 
-	i = 0;
+	pos = 0;
+	space = 0;
 	if (argc == 2)
 	{
-		while (argv[1][i] != '\0')
+		while (argv[1][pos] == ' ' || argv[1][pos] == '\t')
+			pos++;
+		while (argv[1][pos])
 		{
-			if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
-				argv[1][i] = 'M' - (argv[1][i] - 'N');
-			else if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
-				argv[1][i] = 'm' - (argv[1][i] - 'n');
-			write(1, &argv[1][i], 1);
-			i++;
+			if (argv[1][pos] == ' ' || argv[1][pos] == '\t')
+				space = 1;
+			if (argv[1][pos] != ' ' && argv[1][pos] != '\t')
+			{
+				if (space == 1)
+				{
+					write(1, " ", 1);
+					space = 0;
+				}
+				write(1, &argv[1][pos], 1);
+			}
+			pos++;
 		}
 	}
 	write(1, "\n", 1);
