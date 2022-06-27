@@ -15,12 +15,13 @@ char	*ft_strchr(const char *s, int c)
 
 size_t	ft_strspn(const char *s, const char *accept)
 {
-	size_t i = 0;
+	size_t	i;
 
+	i = 0;
 	while (s[i] != '\0')
 	{
 		if (ft_strchr(accept, s[i]) == 0)
-			break;
+			break ;
 		++i;
 	}
 	return (i);

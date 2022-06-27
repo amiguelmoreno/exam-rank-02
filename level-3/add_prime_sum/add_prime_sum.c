@@ -1,4 +1,3 @@
-// Passed Moulinette 2019.09.01
 
 #include <unistd.h>
 
@@ -50,11 +49,12 @@ int		add_prime_sum(int n)
 	return (sum);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int n;
 
-	if (argc == 2 && (n = ft_atoi(argv[1])))
+	n = ft_atoi(argv[1]);
+	if (argc == 2 && n)
 		ft_putnbr(add_prime_sum(n));
 	else
 		ft_putnbr(0);

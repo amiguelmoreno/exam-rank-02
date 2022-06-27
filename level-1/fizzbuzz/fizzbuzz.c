@@ -10,7 +10,7 @@ void	ft_write_number(int number)
 	write (1, &str[number % 10], 1);
 }
 
-int		main()
+int	main(void)
 {
 	int		i;
 

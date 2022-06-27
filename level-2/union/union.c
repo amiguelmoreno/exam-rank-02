@@ -1,40 +1,30 @@
-// Passed Moulinette 2019.09.01
 
 #include <unistd.h>
 
-void	print_union(char *a, char *b)
+int	main(int argc, char **argv)
 {
-	int characters[128] = { 0 };
-	int c;
+	int	i;
+	int	j;
+	int	used[255] = {0};
 
-	while (*a != '\0')
-	{
-		c = *a;
-		if (characters[c] == 0)
-		{
-			write(1, a, 1);
-			characters[c] = 1;
-		}
-		++a;
-	}
-
-	while (*b != '\0')
-	{
-		c = *b;
-		if (characters[c] == 0)
-		{
-			write(1, b, 1);
-			characters[c] = 1;
-		}
-		++b;
-	}
-}
-
-int		main(int argc, char **argv)
-{
 	if (argc == 3)
-		print_union(argv[1], argv[2]);
-
+	{
+		i = 1;
+		while (i < 3)
+		{
+			j = 0;
+			while (argv[i][j])
+			{
+				if (used[argv[i][j]] == 0)
+				{
+					used[argv[i][j]] = 1;
+					write(1, &argv[i][j], 1);
+				}
+				j++;
+			}
+			i++;
+		}
+	}
 	write(1, "\n", 1);
 	return (0);
 }
